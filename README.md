@@ -35,3 +35,8 @@ I stopped this app short of its potential due to time constraints. With more tim
 - Add sort and search capabilities to the tables in the existing pages
 - Add a "schedules" page where the user can get schedule information for a given route
 - Add Google Maps interface where the user could see route and stop information visually
+- Add a homepage to support a story and central interface for the growing number of features
+- Add caching for faster loads
+- Add production infrastructure (Docker-compose, nginx, gunicorn, a host server, etc.)
+- Add end-to-end tests with Playwright
+- Add a CI/CD pipeline through GitHub actions
