@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% set active_page = "stops" %}
+{% block title %}Stops | Transit{% endblock title %}
+{% block description %}A list of stops for a given route.{% endblock description %}
+{% block content %}
+<div class="container">
+  <h1 class="text-center">All stops{% if route %} for the {{ route }} route{% endif %}</h1>
+  <p>Here we list all stops{% if route %} for the {{ route }} route{% endif %}. You can click on a stop ID to go to a list of all routes that connect with that stop. You can click any column header to sort the table rows by that column.</p>
+  <div hx-get="{{ url_for('all.render_stops_table', route=route) }}" hx-trigger="load">
+    <div class="text-center">
+      <img  alt="Result loading..." class="htmx-indicator" width="150" src="{{ url_for('static', filename='bars.svg') }}"/>
+    </div>
+  </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,24 @@
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Description</th>
+        <th scope="col">Direction</th>
+        <th scope="col">Destinations</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for route in routes %}
+      <tr>
+        <td><a href="{{ url_for('all.list_stops', route=route.id) }}">{{ route.id }}</a></td>
+        <td>{{ route.long_name }}{% if route.short_name %} ({{ route.short_name }}){% endif %}</td>
+        <td>{{ route.description }}</td>
+        <td>{{ route.direction[0] }}/{{ route.direction[1] }}</td>
+        <td>{{ route.destinations[0] }} -- {{ route.destinations[1] }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,9 @@
+# Virtual environment files
+venv/*
+# Prettier does not currently handle jinja properly
+*/templates/*
+# Others
+.mypy_cache/*
+.pytest_cache/*
+htmlcov/*
+tmp/*

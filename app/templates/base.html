@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name=viewport content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{% block description %}{% endblock description %}">
+    {% include "imports_top.html" %}
+    {% block css %}{% endblock css %}
+    <title>{% block title %}{% endblock title %}</title>
+  </head>
+  <body>
+    <div hx-boost="true">
+      <header>
+        {% include "nav_bar.html" %}
+      </header>
+      <main>
+        {% block content %}{% endblock content %}
+      </main>
+    </div>
+  </body>
+  {% block scripts %}{% endblock scripts %}
+</html>
