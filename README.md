@@ -20,13 +20,13 @@ To run tests, you'll need to have an activated python 3.10 virtual environment w
 
 To run the app in development, you'll need to have an activated python 3.10 virtual environment with the app requirements.txt files pip installed. See [environment](#environment) above for details. To run the app in development mode run `./utils/run-dev.sh` or simply `flask --app main.py --debug run`. Then open a web browser to `http://127.0.0.1:5000` or `localhost:5000`.
 
-## Running static
+## Running static checkers
 
 Transit app files are statically checked for style, bugs, and common security flaws with the `pre-commit` package. You can run those static checkers with `./utils/pre-commit.sh` or by running `pre-commit install` followed by `pre-commit run --all-files`.
 
 ## App description
 
-The app is very rudimentary at this point. There are two pages: a "routes" page and a "stops" page. The "routes" page lists all routes in the Boston mass transit API. The "stops" page lists all stops in the the API. You can click any route from the "routes" page to get a list of stops that touch that route. This is achieved with a "route" query parameter against the "stops" page. You can click any stop in the "stops" page to get a list of routes that stop at that stop. This is achieved with a "stop" query parameter against the "routes" page.
+The app is very rudimentary at this point. There are two pages: a "routes" page and a "stops" page. The "routes" page lists all routes in the Boston mass transit API. The "stops" page lists all stops in the the API. You can click any route from the "routes" page to get a list of stops that touch that route. This is achieved with a "route" query parameter against the "stops" page. You can click any stop in the "stops" page to get a list of routes that stop at that stop. This is achieved with a "stop" query parameter against the "routes" page. Some of the API wait times are a little long, especially when unconstrained by a filtering query parameter. To improve the user experience, we first load the page without calling the API endpoint and without loading the corresponding table. We then run the API call to load the table lists asynchronously. This delayed table load is achieved with ajax calls with the help of the [htmx](https://htmx.org/) library.
 
 ## TODOs
 
