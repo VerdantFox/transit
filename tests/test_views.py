@@ -96,9 +96,7 @@ def test_stops_table_all(client: FlaskClient) -> None:
 def test_stops_table_valid_route(client: FlaskClient) -> None:
     """Test that the stops table view works with a valid route."""
     valid_route = "Red"
-    html = get_and_decode(
-        client, "/stops-table", query_string={"route": valid_route}, write_file=True
-    )
+    html = get_and_decode(client, "/stops-table", query_string={"route": valid_route})
     assert "<table" in html
     assert '<td><a href="/routes/?stop=place-alfcl">place-alfcl</a></td>' in html
 

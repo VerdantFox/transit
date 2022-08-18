@@ -27,7 +27,10 @@ def get_and_decode(
     html = response.data.decode()
     # Can write to file for debugging
     if write_file:  # pragma: no cover
-        Path("tmp/html.html").write_text(html)
+        tmp_dir = Path(__file__).parent / "tmp"
+        tmp_dir.mkdir(exist_ok=True)
+        tmp_file = tmp_dir / "html.html"
+        tmp_file.write_text(html)
     assert response.status_code == status_code
     return html
 
